@@ -2,9 +2,15 @@ from flask import Flask
 from .extensions import db
 from .config import Config
 
+from .routes.user import user
+from .routes.main import main
+
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
+
+    app.register_blueprint(user)
+    app.register_blueprint(main)
 
     db.init_app(app)
     with app.app_context():
@@ -12,5 +18,4 @@ def create_app(config_class=Config):
 
     return app
 
-if __name__=="__main__":
-    app = create_app()
+app = create_app()

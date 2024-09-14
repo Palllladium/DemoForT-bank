@@ -1,0 +1,10 @@
+@import url('fonts.css');
+
+body {
+    background: grey;
+}
+
+h1 {
+    font-family: ZenMaruGothic, sans-serif;
+    font-weight: 300;
+}
